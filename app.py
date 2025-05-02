@@ -48,3 +48,9 @@ def get_user_by_name(name: str):
     if user:
         return user
     raise HTTPException(status_code=404, detail="User not found")
+
+port = int(os.environ.get("PORT", 8000))
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
